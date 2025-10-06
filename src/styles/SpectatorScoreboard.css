@@ -1,0 +1,418 @@
+/* Spectator Scoreboard Component Styles */
+
+.spectator-scoreboard {
+  @apply relative bg-gradient-to-br from-gray-900 to-gray-800 text-white min-h-screen flex flex-col;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.spectator-scoreboard.fullscreen {
+  @apply fixed inset-0 z-50;
+}
+
+/* No Match State */
+.spectator-scoreboard.no-match {
+  @apply items-center justify-center;
+}
+
+.no-match-content {
+  @apply text-center space-y-6;
+}
+
+.no-match-icon {
+  @apply text-8xl mb-4;
+}
+
+.no-match-title {
+  @apply text-4xl md:text-6xl font-bold text-gray-300 mb-2;
+}
+
+.no-match-subtitle {
+  @apply text-xl md:text-2xl text-gray-400 mb-6;
+}
+
+.current-time {
+  @apply text-2xl md:text-3xl font-mono text-blue-400;
+}
+
+/* Fullscreen Toggle */
+.fullscreen-toggle {
+  @apply absolute top-4 right-4 z-10 bg-black bg-opacity-50 hover:bg-opacity-70 text-white p-2 rounded-lg transition-all duration-200 text-xl;
+}
+
+/* Match Status Header */
+.match-status-header {
+  @apply flex justify-between items-center p-4 md:p-6 bg-black bg-opacity-30;
+}
+
+.status-info {
+  @apply flex items-center space-x-4;
+}
+
+.status-indicator {
+  @apply px-4 py-2 rounded-full text-lg font-bold uppercase tracking-wide;
+}
+
+.status-indicator.pending {
+  @apply bg-yellow-600 text-yellow-100;
+}
+
+.status-indicator.active {
+  @apply bg-green-600 text-green-100;
+}
+
+.status-indicator.paused {
+  @apply bg-orange-600 text-orange-100;
+}
+
+.status-indicator.completed {
+  @apply bg-blue-600 text-blue-100;
+}
+
+.live-indicator {
+  @apply px-3 py-1 bg-red-600 text-red-100 rounded-full text-sm font-medium animate-pulse;
+}
+
+.match-time {
+  @apply text-xl md:text-2xl font-mono text-gray-300;
+}
+
+/* Main Scoreboard */
+.scoreboard-main {
+  @apply flex-1 grid grid-cols-1 lg:grid-cols-3 gap-4 p-4 md:p-8;
+}
+
+/* Team Sections */
+.team-section {
+  @apply flex flex-col items-center justify-center space-y-4 p-6 rounded-2xl bg-black bg-opacity-20 backdrop-blur-sm border border-gray-600;
+}
+
+.team-section.winner {
+  @apply bg-yellow-500 bg-opacity-20 border-yellow-400 shadow-lg shadow-yellow-500/20;
+  animation: winner-glow 2s ease-in-out infinite alternate;
+}
+
+.team-section.home {
+  @apply lg:order-1;
+}
+
+.team-section.away {
+  @apply lg:order-3;
+}
+
+.team-info {
+  @apply text-center space-y-2;
+}
+
+.team-name {
+  @apply text-3xl md:text-5xl lg:text-6xl font-bold text-center break-words;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.team-label {
+  @apply text-lg md:text-xl text-gray-400 uppercase tracking-wider font-medium;
+}
+
+.team-score {
+  @apply relative text-center;
+}
+
+.score-value {
+  @apply text-8xl md:text-9xl lg:text-[12rem] font-black font-mono text-white;
+  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
+  line-height: 0.8;
+}
+
+.winner-badge {
+  @apply absolute -top-4 left-1/2 transform -translate-x-1/2 bg-yellow-500 text-yellow-900 px-4 py-2 rounded-full text-sm font-bold whitespace-nowrap;
+}
+
+/* Center Section */
+.center-section {
+  @apply lg:order-2 flex flex-col items-center justify-center space-y-6 p-6;
+}
+
+.vs-display {
+  @apply text-center;
+}
+
+.vs-text {
+  @apply text-4xl md:text-6xl font-bold text-gray-400;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Timer Display */
+.timer-display {
+  @apply text-center space-y-4 bg-black bg-opacity-30 rounded-2xl p-6 backdrop-blur-sm;
+}
+
+.stone-count {
+  @apply space-y-2;
+}
+
+.stone-label {
+  @apply block text-lg md:text-xl text-gray-400 uppercase tracking-wide font-medium;
+}
+
+.stone-value {
+  @apply block text-4xl md:text-6xl font-bold font-mono text-blue-400;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.time-info {
+  @apply space-y-2;
+}
+
+.current-stone-time {
+  @apply text-2xl md:text-4xl font-mono text-green-400 font-bold;
+}
+
+.total-time {
+  @apply text-lg md:text-xl text-gray-300 font-mono;
+}
+
+.time-remaining {
+  @apply space-y-1;
+}
+
+.remaining-label {
+  @apply block text-sm md:text-base text-gray-400 uppercase tracking-wide;
+}
+
+.remaining-value {
+  @apply block text-xl md:text-2xl font-bold text-orange-400;
+}
+
+/* Progress Section */
+.progress-section {
+  @apply space-y-3 w-full max-w-md;
+}
+
+.progress-bar {
+  @apply w-full bg-gray-700 rounded-full h-4 md:h-6 overflow-hidden;
+}
+
+.progress-fill {
+  @apply h-full bg-gradient-to-r from-blue-500 via-green-500 to-yellow-500 transition-all duration-1000 ease-out;
+}
+
+.progress-text {
+  @apply text-center text-lg md:text-xl font-medium text-gray-300;
+}
+
+/* Match Complete */
+.match-complete {
+  @apply text-center p-4 bg-green-600 bg-opacity-20 rounded-xl border border-green-500;
+}
+
+.complete-text {
+  @apply text-2xl md:text-3xl font-bold text-green-400;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Footer */
+.scoreboard-footer {
+  @apply flex flex-col md:flex-row justify-between items-center p-4 md:p-6 bg-black bg-opacity-30 space-y-2 md:space-y-0;
+}
+
+.tournament-info,
+.jugger-branding,
+.refresh-info {
+  @apply text-center md:text-left;
+}
+
+.tournament-name {
+  @apply text-lg font-medium text-gray-300;
+}
+
+.sport-name {
+  @apply text-xl font-bold text-blue-400 mr-2;
+}
+
+.app-name {
+  @apply text-lg text-gray-400;
+}
+
+.auto-refresh {
+  @apply text-sm text-green-400 font-medium;
+}
+
+/* Status Overlays */
+.status-overlay {
+  @apply absolute inset-0 flex items-center justify-center bg-black bg-opacity-70 backdrop-blur-sm z-20;
+}
+
+.overlay-content {
+  @apply text-center space-y-4 p-8 bg-black bg-opacity-50 rounded-2xl border border-gray-600;
+}
+
+.overlay-icon {
+  @apply text-8xl md:text-9xl;
+}
+
+.overlay-text {
+  @apply text-3xl md:text-5xl font-bold text-white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.status-overlay.paused .overlay-content {
+  @apply border-orange-500 bg-orange-900 bg-opacity-20;
+}
+
+.status-overlay.pending .overlay-content {
+  @apply border-yellow-500 bg-yellow-900 bg-opacity-20;
+}
+
+/* Animations */
+@keyframes winner-glow {
+  0% {
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 40px rgba(255, 215, 0, 0.6);
+  }
+}
+
+@keyframes pulse-live {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.live-indicator {
+  animation: pulse-live 1.5s ease-in-out infinite;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .scoreboard-main {
+    @apply grid-cols-1 gap-6;
+  }
+  
+  .team-section.home,
+  .team-section.away,
+  .center-section {
+    @apply order-none;
+  }
+  
+  .team-name {
+    @apply text-2xl md:text-4xl;
+  }
+  
+  .score-value {
+    @apply text-6xl md:text-8xl;
+  }
+  
+  .vs-text {
+    @apply text-2xl md:text-4xl;
+  }
+}
+
+@media (max-width: 640px) {
+  .spectator-scoreboard {
+    @apply text-sm;
+  }
+  
+  .match-status-header {
+    @apply flex-col space-y-2 p-3;
+  }
+  
+  .scoreboard-main {
+    @apply p-3 gap-4;
+  }
+  
+  .team-section {
+    @apply p-4;
+  }
+  
+  .team-name {
+    @apply text-xl;
+  }
+  
+  .score-value {
+    @apply text-5xl;
+  }
+  
+  .stone-value {
+    @apply text-2xl;
+  }
+  
+  .vs-text {
+    @apply text-xl;
+  }
+  
+  .scoreboard-footer {
+    @apply p-3 text-sm;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .spectator-scoreboard {
+    @apply bg-black text-white;
+  }
+  
+  .team-section {
+    @apply border-2 border-white;
+  }
+  
+  .progress-fill {
+    @apply bg-white;
+  }
+  
+  .status-indicator {
+    @apply border-2 border-current;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .team-section.winner,
+  .live-indicator,
+  .progress-fill {
+    animation: none;
+    @apply transition-none;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .spectator-scoreboard {
+    @apply bg-white text-black;
+  }
+  
+  .fullscreen-toggle,
+  .status-overlay {
+    @apply hidden;
+  }
+  
+  .scoreboard-main {
+    @apply text-black;
+  }
+}
+
+/* Landscape Orientation Optimization */
+@media (orientation: landscape) and (max-height: 600px) {
+  .scoreboard-main {
+    @apply grid-cols-3 gap-2 p-2;
+  }
+  
+  .team-section {
+    @apply p-2 space-y-2;
+  }
+  
+  .center-section {
+    @apply space-y-2 p-2;
+  }
+  
+  .timer-display {
+    @apply p-3 space-y-2;
+  }
+  
+  .match-status-header,
+  .scoreboard-footer {
+    @apply p-2;
+  }
+}

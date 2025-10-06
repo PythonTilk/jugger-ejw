@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://username.github.io/jugger-tournament-app/sitemap.xml
+
+# Disallow admin or sensitive paths (if any)
+# Disallow: /admin/

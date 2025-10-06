@@ -1,0 +1,330 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes bounce-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out;
+}
+
+.animate-slide-in {
+  animation: slide-in 0.3s ease-out;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.3s ease-out;
+}
+
+.animate-bounce-in {
+  animation: bounce-in 0.5s ease-out;
+}
+
+/* Screen reader only class */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Focus styles for better accessibility */
+.focus-visible:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .bg-gray-50 {
+    background-color: white;
+  }
+  
+  .bg-gray-100 {
+    background-color: white;
+    border: 1px solid black;
+  }
+  
+  .text-gray-600 {
+    color: black;
+  }
+  
+  .text-gray-500 {
+    color: black;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Component Styles */
+@import '../styles/JuggerTimer.css';
+@import '../styles/GameControlPanel.css';
+@import '../styles/SpectatorScoreboard.css';
+
+/* CSS Custom Properties for Themes */
+:root {
+  --color-primary: #2563eb;
+  --color-secondary: #64748b;
+  --color-accent: #3b82f6;
+  --color-background: #ffffff;
+  --color-surface: #f8fafc;
+  --color-text: #1e293b;
+}
+
+/* Light Theme (Default) */
+.theme-light {
+  --color-primary: #2563eb;
+  --color-secondary: #64748b;
+  --color-accent: #3b82f6;
+  --color-background: #ffffff;
+  --color-surface: #f8fafc;
+  --color-text: #1e293b;
+}
+
+/* Dark Theme */
+.theme-dark {
+  --color-primary: #3b82f6;
+  --color-secondary: #94a3b8;
+  --color-accent: #60a5fa;
+  --color-background: #0f172a;
+  --color-surface: #1e293b;
+  --color-text: #f1f5f9;
+}
+
+.theme-dark body {
+  background: var(--color-background);
+  color: var(--color-text);
+}
+
+.theme-dark .bg-white {
+  background-color: var(--color-surface) !important;
+}
+
+.theme-dark .text-gray-900 {
+  color: var(--color-text) !important;
+}
+
+.theme-dark .text-gray-700 {
+  color: #cbd5e1 !important;
+}
+
+.theme-dark .text-gray-600 {
+  color: #94a3b8 !important;
+}
+
+.theme-dark .border-gray-200 {
+  border-color: #374151 !important;
+}
+
+/* Jugger Theme */
+.theme-jugger {
+  --color-primary: #dc2626;
+  --color-secondary: #374151;
+  --color-accent: #f59e0b;
+  --color-background: #fef2f2;
+  --color-surface: #ffffff;
+  --color-text: #111827;
+}
+
+.theme-jugger body {
+  background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+}
+
+.theme-jugger .bg-blue-600 {
+  background-color: var(--color-primary) !important;
+}
+
+.theme-jugger .hover\:bg-blue-700:hover {
+  background-color: #b91c1c !important;
+}
+
+.theme-jugger .text-blue-600 {
+  color: var(--color-primary) !important;
+}
+
+.theme-jugger .bg-blue-100 {
+  background-color: #fecaca !important;
+}
+
+/* Tournament Theme */
+.theme-tournament {
+  --color-primary: #059669;
+  --color-secondary: #6b7280;
+  --color-accent: #10b981;
+  --color-background: #f0fdf4;
+  --color-surface: #ffffff;
+  --color-text: #064e3b;
+}
+
+.theme-tournament body {
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+}
+
+.theme-tournament .bg-blue-600 {
+  background-color: var(--color-primary) !important;
+}
+
+.theme-tournament .hover\:bg-blue-700:hover {
+  background-color: #047857 !important;
+}
+
+.theme-tournament .text-blue-600 {
+  color: var(--color-primary) !important;
+}
+
+.theme-tournament .bg-blue-100 {
+  background-color: #d1fae5 !important;
+}
+
+/* Modern Theme */
+.theme-modern {
+  --color-primary: #7c3aed;
+  --color-secondary: #8b5cf6;
+  --color-accent: #a855f7;
+  --color-background: #faf5ff;
+  --color-surface: #ffffff;
+  --color-text: #581c87;
+}
+
+.theme-modern body {
+  background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 50%, #e9d5ff 100%);
+}
+
+.theme-modern .bg-blue-600 {
+  background-color: var(--color-primary) !important;
+}
+
+.theme-modern .hover\:bg-blue-700:hover {
+  background-color: #6d28d9 !important;
+}
+
+.theme-modern .text-blue-600 {
+  color: var(--color-primary) !important;
+}
+
+.theme-modern .bg-blue-100 {
+  background-color: #e9d5ff !important;
+}
+
+/* Theme-aware utility classes */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .bg-theme-primary {
+    background-color: var(--color-primary);
+  }
+  
+  .bg-theme-secondary {
+    background-color: var(--color-secondary);
+  }
+  
+  .bg-theme-accent {
+    background-color: var(--color-accent);
+  }
+  
+  .bg-theme-background {
+    background-color: var(--color-background);
+  }
+  
+  .bg-theme-surface {
+    background-color: var(--color-surface);
+  }
+  
+  .text-theme-primary {
+    color: var(--color-primary);
+  }
+  
+  .text-theme-secondary {
+    color: var(--color-secondary);
+  }
+  
+  .text-theme-accent {
+    color: var(--color-accent);
+  }
+  
+  .text-theme-text {
+    color: var(--color-text);
+  }
+  
+  .border-theme-primary {
+    border-color: var(--color-primary);
+  }
+}
+
+/* Smooth transitions for theme changes */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Ensure proper contrast in all themes */
+.theme-dark .shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+}
+
+.theme-dark .shadow-md {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+}

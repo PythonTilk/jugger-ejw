@@ -1,0 +1,213 @@
+/* Jugger Timer Component Styles */
+
+.jugger-timer {
+  @apply bg-white dark:bg-gray-800 rounded-lg shadow-lg p-4 border border-gray-200 dark:border-gray-700;
+}
+
+.jugger-timer.small {
+  @apply p-2;
+}
+
+.jugger-timer.large {
+  @apply p-6;
+}
+
+.jugger-timer.no-match {
+  @apply text-center py-8;
+}
+
+/* Timer Display */
+.timer-display {
+  @apply space-y-4;
+}
+
+.timer-main {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-4;
+}
+
+.timer-main > div {
+  @apply flex flex-col sm:flex-row sm:items-center sm:justify-between;
+}
+
+.timer-main .label {
+  @apply font-medium text-gray-600 dark:text-gray-400 mr-2;
+}
+
+.timer-main .value {
+  @apply font-mono font-bold text-gray-900 dark:text-white;
+}
+
+.timer-main .value.complete {
+  @apply text-green-600 dark:text-green-400;
+}
+
+/* Progress Bar */
+.progress-container {
+  @apply mt-4 space-y-2;
+}
+
+.progress-bar {
+  @apply w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3 overflow-hidden;
+}
+
+.progress-fill {
+  @apply h-full bg-gradient-to-r from-blue-500 to-green-500 transition-all duration-300 ease-out;
+}
+
+.progress-text {
+  @apply text-center text-sm text-gray-600 dark:text-gray-400 font-medium;
+}
+
+/* Timer Status */
+.timer-status {
+  @apply flex items-center justify-center space-x-4 mt-4 p-3 bg-gray-50 dark:bg-gray-700 rounded-lg;
+}
+
+.status-indicator {
+  @apply px-3 py-1 rounded-full text-sm font-medium;
+}
+
+.status-indicator.running {
+  @apply bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200;
+}
+
+.status-indicator.paused {
+  @apply bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200;
+}
+
+.status-indicator.stopped {
+  @apply bg-gray-100 text-gray-800 dark:bg-gray-600 dark:text-gray-200;
+}
+
+.complete-indicator {
+  @apply px-3 py-1 bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 rounded-full text-sm font-medium;
+}
+
+/* Timer Controls */
+.timer-controls {
+  @apply mt-6 space-y-4;
+}
+
+.control-group {
+  @apply flex flex-wrap gap-2 justify-center;
+}
+
+.control-group.primary {
+  @apply border-b border-gray-200 dark:border-gray-600 pb-4;
+}
+
+/* Button Styles */
+.timer-controls button {
+  @apply font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.btn-primary {
+  @apply bg-green-600 hover:bg-green-700 text-white focus:ring-green-500;
+}
+
+.btn-secondary {
+  @apply bg-yellow-600 hover:bg-yellow-700 text-white focus:ring-yellow-500;
+}
+
+.btn-warning {
+  @apply bg-red-600 hover:bg-red-700 text-white focus:ring-red-500;
+}
+
+.btn-stone {
+  @apply bg-blue-600 hover:bg-blue-700 text-white focus:ring-blue-500;
+}
+
+.btn-qwik {
+  @apply bg-purple-600 hover:bg-purple-700 text-white focus:ring-purple-500;
+}
+
+/* Keyboard Shortcuts */
+.keyboard-shortcuts {
+  @apply text-center mt-4 p-2 bg-gray-50 dark:bg-gray-700 rounded;
+}
+
+/* Spectator Info */
+.spectator-info {
+  @apply text-center mt-4 p-2 bg-blue-50 dark:bg-blue-900 rounded;
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+  .timer-main {
+    @apply grid-cols-1 gap-2;
+  }
+  
+  .timer-main > div {
+    @apply flex-col items-start;
+  }
+  
+  .control-group {
+    @apply flex-col;
+  }
+  
+  .control-group button {
+    @apply w-full;
+  }
+}
+
+/* Large Display Mode */
+.jugger-timer.large .timer-main .value {
+  @apply text-3xl md:text-5xl;
+}
+
+.jugger-timer.large .progress-bar {
+  @apply h-6;
+}
+
+.jugger-timer.large .status-indicator,
+.jugger-timer.large .complete-indicator {
+  @apply text-lg px-4 py-2;
+}
+
+/* Animation for running timer */
+.status-indicator.running {
+  animation: pulse-green 2s infinite;
+}
+
+@keyframes pulse-green {
+  0%, 100% {
+    @apply bg-green-100 dark:bg-green-900;
+  }
+  50% {
+    @apply bg-green-200 dark:bg-green-800;
+  }
+}
+
+/* Stone advance animation */
+.progress-fill {
+  transition: width 0.3s ease-out;
+}
+
+/* Focus states for accessibility */
+.timer-controls button:focus {
+  @apply ring-2 ring-offset-2;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .timer-main .value {
+    @apply font-black;
+  }
+  
+  .progress-fill {
+    @apply bg-black dark:bg-white;
+  }
+  
+  .status-indicator {
+    @apply border-2 border-current;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .progress-fill,
+  .status-indicator.running {
+    @apply transition-none;
+    animation: none;
+  }
+}

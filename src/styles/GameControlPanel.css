@@ -1,0 +1,340 @@
+/* Game Control Panel Component Styles */
+
+.game-control-panel {
+  @apply bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700;
+}
+
+.game-control-panel.compact {
+  @apply p-4;
+}
+
+.game-control-panel:not(.compact) {
+  @apply p-6;
+}
+
+.game-control-panel.no-match,
+.game-control-panel.spectator {
+  @apply text-center py-8;
+}
+
+/* Match Header */
+.match-header {
+  @apply flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 pb-4 border-b border-gray-200 dark:border-gray-600;
+}
+
+.match-title {
+  @apply text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-0;
+}
+
+.match-status .status-badge {
+  @apply px-3 py-1 rounded-full text-sm font-medium;
+}
+
+.status-badge.pending {
+  @apply bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200;
+}
+
+.status-badge.active {
+  @apply bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200;
+}
+
+.status-badge.paused {
+  @apply bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200;
+}
+
+.status-badge.completed {
+  @apply bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200;
+}
+
+/* Score Section */
+.score-section {
+  @apply grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6;
+}
+
+.team-score {
+  @apply bg-gray-50 dark:bg-gray-700 rounded-lg p-4 space-y-4;
+}
+
+.team-score.home {
+  @apply lg:order-1;
+}
+
+.team-score.away {
+  @apply lg:order-3;
+}
+
+.score-divider {
+  @apply lg:order-2 flex items-center justify-center;
+}
+
+.vs-text {
+  @apply text-2xl font-bold text-gray-500 dark:text-gray-400;
+}
+
+.team-info {
+  @apply text-center;
+}
+
+.team-name {
+  @apply text-lg font-bold mb-1;
+}
+
+.team-label {
+  @apply text-sm text-gray-600 dark:text-gray-400 uppercase tracking-wide;
+}
+
+.score-display {
+  @apply text-center;
+}
+
+.score-value {
+  @apply text-4xl md:text-6xl font-bold text-gray-900 dark:text-white font-mono;
+}
+
+.score-controls {
+  @apply flex items-center justify-center space-x-2;
+}
+
+.btn-score-up,
+.btn-score-down {
+  @apply px-4 py-2 font-bold rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+}
+
+.btn-score-up {
+  @apply bg-green-600 hover:bg-green-700 text-white focus:ring-green-500 disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.btn-score-down {
+  @apply bg-red-600 hover:bg-red-700 text-white focus:ring-red-500 disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.score-input {
+  @apply w-16 px-2 py-1 text-center border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500;
+}
+
+.team-actions {
+  @apply flex justify-center space-x-2;
+}
+
+.btn-timeout,
+.btn-penalty {
+  @apply px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.btn-timeout {
+  @apply bg-yellow-600 hover:bg-yellow-700 text-white focus:ring-yellow-500;
+}
+
+.btn-penalty {
+  @apply bg-orange-600 hover:bg-orange-700 text-white focus:ring-orange-500;
+}
+
+/* Timer Section */
+.timer-section {
+  @apply mb-6;
+}
+
+/* Match Controls */
+.match-controls {
+  @apply flex flex-wrap justify-center gap-3 mb-6 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg;
+}
+
+.match-controls button {
+  @apply font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.btn-large {
+  @apply px-6 py-3 text-lg;
+}
+
+.btn-primary {
+  @apply bg-green-600 hover:bg-green-700 text-white focus:ring-green-500;
+}
+
+.btn-secondary {
+  @apply bg-yellow-600 hover:bg-yellow-700 text-white focus:ring-yellow-500;
+}
+
+.btn-success {
+  @apply bg-blue-600 hover:bg-blue-700 text-white focus:ring-blue-500;
+}
+
+.btn-warning {
+  @apply bg-red-600 hover:bg-red-700 text-white focus:ring-red-500;
+}
+
+/* Events Section */
+.events-section {
+  @apply space-y-4;
+}
+
+.events-title {
+  @apply text-lg font-semibold text-gray-900 dark:text-white mb-3;
+}
+
+.events-list {
+  @apply space-y-2 max-h-64 overflow-y-auto;
+}
+
+.no-events {
+  @apply text-center text-gray-500 dark:text-gray-400 py-4 italic;
+}
+
+.event-item {
+  @apply bg-gray-50 dark:bg-gray-700 rounded-lg p-3 border-l-4 border-blue-500;
+}
+
+.event-info {
+  @apply flex flex-wrap items-center gap-2 mb-1;
+}
+
+.event-type {
+  @apply px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded text-xs font-medium;
+}
+
+.event-team {
+  @apply px-2 py-1 bg-gray-200 dark:bg-gray-600 text-gray-800 dark:text-gray-200 rounded text-xs font-medium;
+}
+
+.event-stone {
+  @apply text-xs text-gray-600 dark:text-gray-400;
+}
+
+.event-description {
+  @apply text-sm text-gray-700 dark:text-gray-300 mb-2;
+}
+
+.event-actions {
+  @apply flex items-center justify-between;
+}
+
+.event-time {
+  @apply text-xs text-gray-500 dark:text-gray-400;
+}
+
+.btn-remove-event {
+  @apply text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300 text-xs p-1 rounded transition-colors duration-200;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  @apply fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4;
+}
+
+.modal-content {
+  @apply bg-white dark:bg-gray-800 rounded-lg p-6 max-w-md w-full space-y-4;
+}
+
+.modal-content h3 {
+  @apply text-lg font-semibold text-gray-900 dark:text-white;
+}
+
+.modal-textarea {
+  @apply w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none;
+  min-height: 80px;
+}
+
+.modal-actions {
+  @apply flex justify-end space-x-3;
+}
+
+.modal-actions button {
+  @apply px-4 py-2 font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+  .score-section {
+    @apply grid-cols-1 gap-4;
+  }
+  
+  .team-score.home,
+  .team-score.away,
+  .score-divider {
+    @apply order-none;
+  }
+  
+  .score-controls {
+    @apply flex-col space-x-0 space-y-2;
+  }
+  
+  .team-actions {
+    @apply flex-col space-x-0 space-y-2;
+  }
+  
+  .match-controls {
+    @apply flex-col;
+  }
+  
+  .match-controls button {
+    @apply w-full;
+  }
+}
+
+/* Compact Mode Adjustments */
+.game-control-panel.compact .score-value {
+  @apply text-2xl md:text-4xl;
+}
+
+.game-control-panel.compact .match-title {
+  @apply text-lg md:text-xl;
+}
+
+.game-control-panel.compact .team-score {
+  @apply p-3;
+}
+
+.game-control-panel.compact .match-controls {
+  @apply p-3;
+}
+
+.game-control-panel.compact .btn-large {
+  @apply px-4 py-2 text-base;
+}
+
+/* Animation for score changes */
+.score-value {
+  transition: transform 0.2s ease-out;
+}
+
+.score-value:hover {
+  @apply transform scale-105;
+}
+
+/* Focus states for accessibility */
+.score-controls button:focus,
+.team-actions button:focus,
+.match-controls button:focus {
+  @apply ring-2 ring-offset-2;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .team-score {
+    @apply border-2 border-gray-400 dark:border-gray-500;
+  }
+  
+  .event-item {
+    @apply border-2 border-blue-600;
+  }
+  
+  .status-badge {
+    @apply border-2 border-current;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .score-value,
+  .match-controls button,
+  .btn-score-up,
+  .btn-score-down,
+  .btn-timeout,
+  .btn-penalty {
+    @apply transition-none;
+  }
+  
+  .score-value:hover {
+    @apply transform-none;
+  }
+}
